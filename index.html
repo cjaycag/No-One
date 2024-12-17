@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Am I Cute?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            text-align: center;
+        }
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        #noButton {
+            background-color: red;
+        }
+        #yesButton {
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Am I cute?</h2>
+        <button id="yesButton" onclick="respond('yes')">Yes</button>
+        <button id="noButton" onclick="respond('no')">No</button>
+    </div>
+
+    <script>
+        function respond(answer) {
+            if (answer === 'yes') {
+                alert("Thank you! You're awesome!");
+                window.external.quit(); // Call C# method to quit the app
+            } else if (answer === 'no') {
+                let noButton = document.getElementById("noButton");
+                // Move the 'No' button to a random position
+                noButton.style.position = "absolute";
+                noButton.style.left = Math.random() * 300 + "px";
+                noButton.style.top = Math.random() * 300 + "px";
+            }
+        }
+    </script>
+</body>
+</html>
